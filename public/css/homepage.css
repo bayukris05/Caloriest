@@ -1,0 +1,560 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: #f5f5f5;
+    padding: 20px;
+    margin-top: 60px;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+}
+
+.main-content {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: calc(100vh - 80px);
+    /* Sesuaikan dengan tinggi navbar */
+    min-height: 0;
+    /* Penting untuk flexbox scrolling */
+}
+
+.sidebar {
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    height: calc(100vh - 80px);
+    /* Sama dengan main-content */
+    min-height: 0;
+    /* Penting untuk flexbox scrolling */
+}
+
+/* Header Card */
+.header-card {
+    background: linear-gradient(135deg, #8bc34a, #689f38);
+    border-radius: 20px;
+    padding: 30px;
+    color: white;
+    position: relative;
+    overflow: hidden;
+    flex-shrink: 0;
+    /* Jangan biarkan header mengecil */
+}
+
+.header-date {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 10px;
+}
+
+.header-title {
+    font-size: 28px;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.header-subtitle {
+    font-size: 16px;
+    opacity: 0.9;
+}
+
+.header-illustration {
+    position: absolute;
+    right: 20px;
+    top: 20px;
+    display: flex;
+    flex-wrap: wrap;
+    width: 200px;
+    height: 120px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+}
+
+.illustration-item {
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 24px;
+    background: rgba(255, 255, 255, 0.2);
+    backdrop-filter: blur(10px);
+    animation: float 3s ease-in-out infinite;
+}
+
+.illustration-item:nth-child(1) {
+    animation-delay: 0s;
+}
+
+.illustration-item:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.illustration-item:nth-child(3) {
+    animation-delay: 1s;
+}
+
+.illustration-item:nth-child(4) {
+    animation-delay: 1.5s;
+}
+
+.illustration-item:nth-child(5) {
+    animation-delay: 2s;
+}
+
+.chef-character {
+    width: 60px;
+    height: 60px;
+    background: #fff;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 28px;
+    position: relative;
+    animation: bounce 2s ease-in-out infinite;
+}
+
+.scrollable-content {
+    flex: 1;
+    /* Ambil sisa ruang yang tersedia */
+    overflow-y: auto;
+    padding-right: 10px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    min-height: 0;
+    /* Penting untuk flexbox scrolling */
+
+    /* Gaya scrollbar */
+    scrollbar-width: thin;
+    scrollbar-color: #8bc34a #f5f5f5;
+}
+
+.scrollable-content::-webkit-scrollbar {
+    width: 6px;
+}
+
+.scrollable-content::-webkit-scrollbar-track {
+    background: #f5f5f5;
+    border-radius: 10px;
+}
+
+.scrollable-content::-webkit-scrollbar-thumb {
+    background-color: #8bc34a;
+    border-radius: 10px;
+}
+
+.scrollable-content::-webkit-scrollbar-thumb:hover {
+    background-color: #689f38;
+}
+
+/* Status Card */
+.status-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+    /* Jangan biarkan card mengecil */
+}
+
+.status-header {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+    font-size: 18px;
+    font-weight: 600;
+    color: #333;
+}
+
+.status-icon {
+    width: 24px;
+    height: 24px;
+    background: #ffffff;
+    border-radius: 4px;
+    margin-right: 12px;
+}
+
+.status-icon img {
+    scale: 0.4;
+    margin-left: -20px;
+    margin-top: -10px;
+}
+
+.calorie-number {
+    font-size: 48px;
+    font-weight: bold;
+    color: #333;
+    text-align: center;
+    margin-bottom: 5px;
+}
+
+.calorie-subtitle {
+    text-align: center;
+    color: #666;
+    font-size: 14px;
+    margin-bottom: 25px;
+}
+
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    background: #e0e0e0;
+    border-radius: 6px;
+    overflow: hidden;
+    margin-bottom: 25px;
+}
+
+.progress-fill {
+    height: 100%;
+    background: linear-gradient(90deg, #8bc34a, #689f38);
+    width: 71%;
+    border-radius: 6px;
+}
+
+.calories-info {
+    background: #f8f8f8;
+    border-radius: 10px;
+    padding: 15px;
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+.calories-label {
+    color: #666;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.calories-value {
+    color: #8bc34a;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.food-recommendations-btn {
+    background: #8bc34a;
+    color: white;
+    border: none;
+    border-radius: 10px;
+    padding: 15px;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+    width: 100%;
+}
+
+.food-recommendations-btn:hover {
+    background: #689f38;
+}
+
+/* Results Assessment */
+.results-card {
+    background: white;
+    border-radius: 15px;
+    padding: 25px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    flex-shrink: 0;
+    /* Jangan biarkan card mengecil */
+}
+
+.results-title {
+    text-align: center;
+    font-size: 20px;
+    font-weight: 600;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+.bmr-info {
+    background: #f2f2f2;
+    border-radius: 10px;
+    padding: 20px;
+    display: flex;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.bmr-label {
+    color: #8bc34a;
+    font-weight: 600;
+    font-size: 16px;
+}
+
+.bmr-value {
+    color: #333;
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.last-title {
+    color: #8bc34a;
+    margin-left: 20px;
+}
+
+/* GRAFIK */
+
+/* Profile Card */
+.profile-card {
+    background: #689f38;
+    color: white;
+    border-radius: 15px;
+    padding: 20px;
+    position: relative;
+}
+
+.profile-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.profile-title {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.profile-icon {
+    width: 24px;
+    height: 24px;
+    background: white;
+    border-radius: 50%;
+}
+
+.profile-avatar {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background: #ccc;
+    margin-bottom: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-avatar img {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 15px;
+    position: relative;
+    overflow: hidden;
+}
+
+.profile-name {
+    font-weight: bold;
+    font-size: 16px;
+    margin-bottom: 5px;
+}
+
+.profile-status {
+    font-size: 14px;
+    opacity: 0.9;
+    margin-bottom: 20px;
+}
+
+.profile-stats {
+    display: flex;
+    justify-content: space-between;
+    font-size: 12px;
+    margin-bottom: 15px;
+}
+
+.profile-values {
+    display: flex;
+    justify-content: space-between;
+    font-weight: bold;
+    font-size: 14px;
+}
+
+/* Calendar Card */
+.calendar-card {
+    background: #689f38;
+    color: white;
+    border-radius: 15px;
+    padding: 20px;
+    flex: 1;
+    /* Biarkan calendar card menggunakan sisa ruang yang tersedia */
+    min-height: 0;
+    /* Penting untuk flexbox scrolling */
+    overflow: hidden;
+    /* Cegah overflow */
+    display: flex;
+    flex-direction: column;
+}
+
+.calendar-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 15px;
+}
+
+.calendar-title {
+    font-weight: bold;
+    font-size: 16px;
+}
+
+.calendar-month {
+    background: white;
+    color: #333;
+    padding: 5px 10px;
+    border-radius: 15px;
+    font-size: 12px;
+}
+
+.calendar-grid {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 5px;
+    margin-bottom: 20px;
+}
+
+.calendar-day-header {
+    text-align: center;
+    font-size: 12px;
+    padding: 8px;
+    opacity: 0.8;
+}
+
+.calendar-day {
+    text-align: center;
+    padding: 8px;
+    border-radius: 8px;
+    font-size: 14px;
+    cursor: pointer;
+}
+
+.calendar-day.active {
+    background: #8bc34a;
+    font-weight: bold;
+}
+
+.calendar-day.inactive {
+    opacity: 0.5;
+}
+
+.schedule-info {
+    border-top: 1px solid rgba(255, 255, 255, 0.2);
+    padding-top: 15px;
+    flex: 1;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.schedule-date {
+    font-weight: bold;
+    margin-bottom: 10px;
+    flex-shrink: 0;
+}
+
+.schedule-items {
+    font-size: 12px;
+    line-height: 1.6;
+    flex: 1;
+    overflow-y: auto;
+    padding-right: 10px;
+
+    scrollbar-width: thin;
+    scrollbar-color: rgba(255, 255, 255, 0.5) transparent;
+}
+
+.schedule-items::-webkit-scrollbar {
+    width: 4px;
+}
+
+.schedule-items::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.schedule-items::-webkit-scrollbar-thumb {
+    background-color: rgba(255, 255, 255, 0.5);
+    border-radius: 2px;
+}
+
+.schedule-items::-webkit-scrollbar-thumb:hover {
+    background-color: rgba(255, 255, 255, 0.7);
+}
+
+.schedule-item {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 3px;
+    opacity: 0.9;
+}
+
+/* Profile avatar block removed to fix duplication */
+
+.profile-avatar img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+.avatar-placeholder {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+@keyframes float {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+@keyframes bounce {
+
+    0%,
+    100% {
+        transform: translateY(0px);
+    }
+
+    50% {
+        transform: translateY(-5px);
+    }
+}
+
+@media (max-width: 768px) {
+    .container {
+        grid-template-columns: 1fr;
+    }
+
+    .header-card {
+        margin-right: 20px;
+    }
+
+    .profile-card {
+        margin-right: 20px;
+    }
+
+    .calendar-card {
+        margin-right: 20px;
+    }
+
+    .header-illustration {
+        opacity: 0;
+    }
+}

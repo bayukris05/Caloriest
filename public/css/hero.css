@@ -1,0 +1,484 @@
+@import url("https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap");
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+}
+
+html,
+body {
+    overflow-x: hidden;
+    height: 100%;
+}
+
+body {
+    background: transparent;
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+@keyframes wave {
+    0% {
+        transform: translateX(0) translateY(0);
+    }
+    25% {
+        transform: translateX(5px) translateY(-8px);
+    }
+    50% {
+        transform: translateX(0) translateY(0);
+    }
+    75% {
+        transform: translateX(-5px) translateY(8px);
+    }
+    100% {
+        transform: translateX(0) translateY(0);
+    }
+}
+
+@keyframes slideInFromRight {
+    0% {
+        transform: translateX(50vw) rotate(0deg);
+        opacity: 0.5;
+    }
+    100% {
+        transform: translateX(0) rotate(0deg);
+        opacity: 1;
+    }
+}
+
+@keyframes fadeInFloat {
+    0% {
+        opacity: 0;
+        transform: translateY(20px) scale(0.8);
+    }
+    100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+    }
+}
+
+.login-container {
+    background: transparent;
+    display: flex;
+    min-height: 100vh;
+    overflow: visible;
+}
+
+.left-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.7);
+    z-index: -1;
+}
+
+.left-section {
+    z-index: 0;
+    background: transparent;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+    padding: 100px;
+    overflow: visible;
+    position: relative;
+}
+
+.main-features {
+    margin-top: 2rem;
+    width: 100%;
+}
+
+.main-features h3 {
+    font-size: 18px;
+    font-weight: 600;
+    color: #000000;
+    margin-bottom: 1.5rem;
+    font-family: "Inter", sans-serif;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.flame-icon {
+    color: #ff6b35;
+    font-size: 20px;
+}
+
+.features-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 12px;
+    max-width: 380px;
+}
+
+.feature-card {
+    background: linear-gradient(#a8e763 0%, #74c83d 57%, #58b030 96%);
+    border-radius: 10px;
+    padding: 15px;
+    color: white;
+    text-align: left;
+    position: relative;
+    min-height: 80px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.feature-card:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(46, 125, 50, 0.3);
+}
+
+.card-content h4 {
+    font-size: 13px;
+    font-weight: 600;
+    margin: 0;
+    line-height: 1.3;
+    max-width: 70%;
+}
+
+.card-icon {
+    width: 30px;
+    height: 30px;
+    background: rgba(255, 255, 255, 0.15);
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 14px;
+    flex-shrink: 0;
+}
+
+.card-icon img {
+    width: 45px;
+    height: 45px;
+}
+
+.right-section {
+    z-index: 1 !important;
+    flex: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+    position: relative;
+    background-color: white;
+}
+
+.image-container {
+    position: relative;
+    width: 100%;
+    height: 100%;
+    max-width: 100%;
+    max-height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    overflow: visible;
+}
+
+.food-image {
+    width: 100%;
+    height: 100%;
+    position: relative;
+}
+
+.food-plate {
+    position: absolute;
+    width: 400px;
+    max-width: 80%;
+    z-index: 10;
+    animation: slideInFromRight 2.5s cubic-bezier(0.175, 0.885, 0.32, 1.275)
+            forwards,
+        rotatePlate 35s linear infinite;
+    animation-delay: 0s, 2.5s;
+    filter: drop-shadow(10px 15px 20px #ffffff);
+}
+
+.food-plate,
+.floating-fruit {
+    z-index: 3;
+}
+
+@keyframes rotatePlate {
+    0% {
+        transform: rotate(0deg);
+    }
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+.floating-fruit {
+    position: absolute;
+    z-index: 5;
+    opacity: 0;
+    animation: fadeInFloat 0.8s ease-out forwards,
+        floatAnimation 8s ease-in-out infinite;
+}
+
+/* Animasi melayang */
+@keyframes floatAnimation {
+    0% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+    }
+    25% {
+        transform: translateY(-20px) translateX(15px) rotate(5deg);
+    }
+    50% {
+        transform: translateY(10px) translateX(-15px) rotate(-5deg);
+    }
+    75% {
+        transform: translateY(-15px) translateX(10px) rotate(3deg);
+    }
+    100% {
+        transform: translateY(0) translateX(0) rotate(0deg);
+    }
+}
+
+.float1 {
+    animation-delay: 2.5s, 3s; /* Delay sedikit lebih lama */
+    width: 60px;
+    height: 60px;
+    top: 35%;
+    left: 5%;
+}
+.float2 {
+    animation-delay: 2.7s, 3.2s;
+    width: 60px;
+    height: 60px;
+    top: 75%;
+    left: 10%;
+}
+.float4 {
+    animation-delay: 2.9s, 3.4s;
+    width: 60px;
+    height: 60px;
+    top: 75%;
+    left: 75%;
+}
+.float5 {
+    animation-delay: 3.1s, 3.6s;
+    width: 60px;
+    height: 60px;
+    top: 15%;
+    left: 75%;
+}
+
+/* Sign In Form */
+.sign-in-form {
+    max-width: 400px;
+    width: 100%;
+    padding: 0;
+    margin-bottom: 1rem;
+}
+
+.judul {
+    font-size: 35px;
+    font-family: "Inter", sans-serif;
+    font-weight: bold;
+    color: #2e7d32;
+    margin-bottom: 20px;
+    text-align: left;
+    position: relative;
+    line-height: 1.2;
+}
+.description_hero {
+    width: 100%;
+    font-family: "Inter", sans-serif;
+    text-align: justify;
+    max-width: 450px;
+    color: rgba(0, 0, 0, 0.7);
+    line-height: 1.6;
+    font-size: 14px;
+}
+@media (max-width: 1200px) {
+    .judul {
+        font-size: 28px;
+    }
+
+    .image-container {
+        max-width: 450px;
+        height: 450px;
+    }
+}
+
+@media (max-width: 992px) {
+    .judul {
+        font-size: 26px;
+    }
+
+    .image-container {
+        max-width: 400px;
+        height: 400px;
+    }
+
+    .food-plate {
+        width: 350px;
+    }
+
+    .right-section {
+        display: none;
+    }
+
+    .description_hero {
+        text-align: justify;
+    }
+
+    .card-icon {
+        margin-right: 30px;
+    }
+
+    .image-container {
+        display: none;
+    }
+}
+
+@media (max-width: 768px) {
+    .login-container {
+        flex-direction: column;
+        margin-top: 60px;
+    }
+
+    .left-section {
+        padding: 2rem 1.5rem;
+        order: 2;
+    }
+
+    .right-section {
+        padding: 1.5rem;
+        order: 1;
+        min-height: 400px;
+    }
+
+    .image-container {
+        max-width: 350px;
+        height: 350px;
+    }
+
+    .description_hero {
+        text-align: justify;
+    }
+
+    .judul {
+        font-size: 26px;
+        text-align: center;
+        margin-bottom: 2rem;
+    }
+
+    .float1 {
+        top: 15%;
+        left: 25%;
+    }
+    .float2 {
+        top: 65%;
+        left: 15%;
+    }
+    .float4 {
+        top: 75%;
+        left: 80%;
+    }
+    .float5 {
+        top: 10%;
+        left: 80%;
+    }
+
+    .food-plate {
+        width: 300px;
+    }
+
+    .description_hero {
+        width: 100%;
+        text-align: center;
+    }
+
+    .features-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .main-features h3 {
+        text-align: center;
+        justify-content: center;
+    }
+}
+
+@media (max-width: 576px) {
+    .left-section {
+        padding: 1.5rem 1rem;
+    }
+
+    .right-section {
+        padding: 1rem;
+        min-height: 300px;
+    }
+
+    .judul {
+        font-size: 24px;
+        margin-bottom: 1.5rem;
+    }
+
+    .image-container {
+        max-width: 300px;
+        height: 300px;
+    }
+    .float1 {
+        top: 10%;
+        left: 20%;
+        width: 45px;
+        height: 45px;
+    }
+    .float2 {
+        top: 70%;
+        left: 10%;
+        width: 40px;
+        height: 40px;
+    }
+    .float4 {
+        top: 80%;
+        left: 85%;
+        width: 50px;
+        height: 50px;
+    }
+    .float5 {
+        top: 5%;
+        left: 85%;
+        width: 35px;
+        height: 35px;
+    }
+
+    .food-plate {
+        width: 250px;
+    }
+
+    .features-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .feature-card {
+        min-height: 100px;
+    }
+
+    .card-content h4 {
+        font-size: 14px;
+    }
+
+    @keyframes slideInFromRight {
+        0% {
+            transform: translateX(20vw) rotate(0deg);
+            opacity: 0.7;
+        }
+        100% {
+            transform: translateX(0) rotate(0deg);
+            opacity: 1;
+        }
+    }
+}
