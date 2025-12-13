@@ -12,7 +12,7 @@ class CreateCommentTable extends Migration
     public function up(): void
     {
         Schema::create('comment', function (Blueprint $table) {
-            $table->integer('id_comment', false, true)->length(10)->autoIncrement()->primary();
+            $table->increments('id_comment');
             $table->text('isi_comment');
             $table->date('tanggal_comment');
             $table->integer('id_post', false, true)->length(10);
