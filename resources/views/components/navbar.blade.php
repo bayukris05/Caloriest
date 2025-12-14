@@ -26,7 +26,7 @@
     @auth
         <form action="{{ route('logout') }}" method="POST" style="display: inline;">
             @csrf
-            <button type="submit" class="get_started">Logout</button>
+            <button type="submit" class="get_started">Keluar</button>
         </form>
     @endauth
     <button class="mobile-menu-toggle">☰</button>
