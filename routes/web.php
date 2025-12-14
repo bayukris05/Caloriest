@@ -13,9 +13,14 @@ use App\Http\Controllers\Auth\ProfileController;
 use App\Http\Controllers\Auth\CalorieController;
 use App\Http\Controllers\Controller;
 
-// Route::get('/', function () {
-//     return view('auth.login');
-// });
+Route::get('/run-seed', function () {
+    try {
+        \Illuminate\Support\Facades\Artisan::call('db:seed', ['--force' => true]);
+        return 'Seeding completed successfully! You can now delete this route.';
+    } catch (\Exception $e) {
+        return 'Seeding failed: ' . $e->getMessage();
+    }
+});
 // Guest routes - Accessible only by guests
 Route::middleware('guest')->group(function () {
     Route::get('/', [LandingPageController::class, 'index'])->name('landing');
